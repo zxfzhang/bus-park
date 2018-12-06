@@ -1,0 +1,12 @@
+{
+  "presets": ["es2015"],
+  "sourceMaps": "inline",
+  "plugins": ["rewire", ["module-resolver", {
+    "root": ["./"],
+    "alias": {
+      "root": "./",
+      "src": "./src",
+      "tests": "./tests"
+    }}
+  ]]
+}

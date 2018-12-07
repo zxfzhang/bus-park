@@ -1,0 +1,15 @@
+{
+  "extends": "eslint-config-airbnb",
+  "root": true,
+  "env": {
+    "jasmine": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "rules": {
+    "import/no-absolute-path": "off"
+  }
+}

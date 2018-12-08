@@ -8,5 +8,11 @@
       "src": "./src",
       "tests": "./tests"
     }}
+  ], ["transform-runtime", {
+    "helpers": false,
+    "polyfill": false,
+    "regenerator": true,
+    "moduleName": "babel-runtime"
+    }
   ]]
 }

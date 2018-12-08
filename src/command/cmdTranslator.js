@@ -1,7 +1,6 @@
 import CmdPattern from 'src/command/cmdPattern';
 import { CMD_TYPE_SET_POS, CMD_TYPE_UPDATE_POS, CMD_TYPE_END_REPORT } from 'src/consts/constants';
 
-
 export default class CmdTranslator {
   static translatePos(currentPos, cmdMsg) {
     const cmdPatternArry = [
@@ -76,15 +75,6 @@ export default class CmdTranslator {
             } else {
               facing = 'NORTH';
             }
-            return {
-              cmdType: command.type,
-              pos: {
-                posX,
-                posY,
-                facing,
-              },
-            };
-          case 'REPORT':
             return {
               cmdType: command.type,
               pos: {

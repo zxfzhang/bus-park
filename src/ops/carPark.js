@@ -19,7 +19,7 @@ export default class CarPark {
 
   /* eslint-disable no-console */
   reportPosition() {
-    if (this.currentBusPos != null) {
+    if (this.currentBusPos !== null) {
       console.log(
         '%d,%d,%s', this.currentBusPos.posX, this.currentBusPos.posY, this.currentBusPos.facing,
       );

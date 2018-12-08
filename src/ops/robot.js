@@ -11,12 +11,12 @@ export default class Robot {
   }
 
   handleMsg(cmdMsg) {
-    const currentPos = this.carPark.getCurrentBusPos();
+    const currentPos = this.getCarPark().getCurrentBusPos();
     const newPosCmd = CmdTranslator.translatePos(currentPos, cmdMsg);
 
     if (newPosCmd !== null) {
-      this.carPark.moveBusToPos(newPosCmd.pos);
-      if (newPosCmd.cmdType === CMD_TYPE_END_REPORT) this.carPark.reportPosition();
+      this.getCarPark().moveBusToPos(newPosCmd.pos);
+      if (newPosCmd.cmdType === CMD_TYPE_END_REPORT) this.getCarPark().reportPosition();
     }
   }
 }

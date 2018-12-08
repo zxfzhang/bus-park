@@ -5,6 +5,7 @@ import RobotSpec from 'tests/specs/unit/ops/robot.spec';
 import CmdReaderSpec from 'tests/specs/unit/command/cmdReader.spec';
 import CmdStoreSpec from 'tests/specs/unit/command/cmdStore.spec';
 import AppSpec from 'tests/specs/unit/app.spec';
+import CmdMemReaderSpec from 'tests/specs/unit/extensions/cmdMemReader.spec';
 
 describe('[bus-park unit test]', () => {
   CmdReaderSpec();
@@ -14,4 +15,5 @@ describe('[bus-park unit test]', () => {
   CmdTranslatorSpec();
   RobotSpec();
   CmdStoreSpec();
+  CmdMemReaderSpec();
 });

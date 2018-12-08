@@ -13,7 +13,7 @@ export default class CmdTranslator {
 
     for (let i = 0; i < cmdPatternArry.length; i += 1) {
       const cmdPattern = cmdPatternArry[i];
-      const command = cmdPattern.parse(cmdMsg);
+      const command = cmdPattern.parse(cmdMsg.toUpperCase());
       if (command !== null) {
         if (currentPos == null && command.name !== 'PLACE') return null;
         let facing = currentPos ? currentPos.facing : null;

@@ -13,10 +13,10 @@ class App {
     console.log(`Welcome to ${this.appName}`); // eslint-disable-line no-console
   }
 
-  run() {
+  run(inputReader) {
     this.welcome();
     const carPark = new CarPark(CARPARK_X_LEN, CARPARK_Y_LEN);
-    const cmdStore = new CmdStore(new CmdReader());
+    const cmdStore = new CmdStore(inputReader || new CmdReader());
     const robot = new Robot(carPark);
 
     cmdStore.registSubscriber(robot);

@@ -20,7 +20,7 @@ export default class CmdStore {
     do {
       cmdMsg = await this.cmdReader.readCmdMsg();
       this.handleCmdMsg(cmdMsg);
-    } while (cmdMsg !== CMD_NAME_TO_EXIT);
+    } while (cmdMsg.toUpperCase() !== CMD_NAME_TO_EXIT);
   }
 
   handleCmdMsg(cmdMsg) {

@@ -17,11 +17,10 @@ export default class CarPark {
     return true;
   }
 
-  /* eslint-disable no-console */
   reportPosition() {
     const cbp = this.getCurrentBusPos();
     if (cbp !== null) {
-      console.log('%d,%d,%s', cbp.posX, cbp.posY, cbp.facing);
+      console.log('%d,%d,%s', cbp.posX, cbp.posY, cbp.facing); // eslint-disable-line no-console
     }
   }
 }

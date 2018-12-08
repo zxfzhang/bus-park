@@ -2,14 +2,11 @@ import CarPark from 'src/ops/carPark';
 
 module.exports = () => {
   describe('CarPark class', () => {
-    afterEach(() => {
-
-    });
-
     it('should be a correct class with expected method defined', () => {
       expect(typeof CarPark).toEqual('function');
       expect(typeof CarPark.prototype.getCurrentBusPos).toEqual('function');
-      expect(typeof CarPark.prototype.MoveBusToPos).toEqual('function');
+      expect(typeof CarPark.prototype.moveBusToPos).toEqual('function');
+      expect(typeof CarPark.prototype.reportPosition).toEqual('function');
     });
 
     it('should return null for current bus position when initialized', () => {
@@ -24,7 +21,7 @@ module.exports = () => {
         posY: 2,
         facing: 'NOTRH',
       };
-      expect(carPark.MoveBusToPos(posLegal1)).toEqual(true);
+      expect(carPark.moveBusToPos(posLegal1)).toEqual(true);
       expect(carPark.getCurrentBusPos()).toEqual(posLegal1);
 
       const posLegal2 = {
@@ -32,7 +29,7 @@ module.exports = () => {
         posY: 4,
         facing: 'WEST',
       };
-      expect(carPark.MoveBusToPos(posLegal2)).toEqual(true);
+      expect(carPark.moveBusToPos(posLegal2)).toEqual(true);
       expect(carPark.getCurrentBusPos()).toEqual(posLegal2);
 
       const currentPos = carPark.getCurrentBusPos();
@@ -41,7 +38,7 @@ module.exports = () => {
         posY: 2,
         facing: 'NOTRH',
       };
-      expect(carPark.MoveBusToPos(posIllegal1)).toEqual(false);
+      expect(carPark.moveBusToPos(posIllegal1)).toEqual(false);
       expect(carPark.getCurrentBusPos()).toEqual(currentPos);
 
       const posIllegal2 = {
@@ -49,7 +46,7 @@ module.exports = () => {
         posY: -4,
         facing: 'WEST',
       };
-      expect(carPark.MoveBusToPos(posIllegal2)).toEqual(false);
+      expect(carPark.moveBusToPos(posIllegal2)).toEqual(false);
       expect(carPark.getCurrentBusPos()).toEqual(currentPos);
 
       const posIllegal3 = {
@@ -57,7 +54,7 @@ module.exports = () => {
         posY: 2,
         facing: 'SOUTH',
       };
-      expect(carPark.MoveBusToPos(posIllegal3)).toEqual(false);
+      expect(carPark.moveBusToPos(posIllegal3)).toEqual(false);
       expect(carPark.getCurrentBusPos()).toEqual(currentPos);
 
       const posIllegal4 = {
@@ -65,8 +62,28 @@ module.exports = () => {
         posY: 8,
         facing: 'EAST',
       };
-      expect(carPark.MoveBusToPos(posIllegal4)).toEqual(false);
+      expect(carPark.moveBusToPos(posIllegal4)).toEqual(false);
       expect(carPark.getCurrentBusPos()).toEqual(currentPos);
+    });
+
+    it('should not print position if position is not availabe', () => {
+      const carPark = new CarPark(5, 5);
+      const consoleSpy = spyOn(console, 'log');
+      carPark.reportPosition();
+      expect(consoleSpy).not.toHaveBeenCalled();
+    });
+
+    it('should print position if position is availabe', () => {
+      const carPark = new CarPark(5, 5);
+      const posLegal1 = {
+        posX: 3,
+        posY: 2,
+        facing: 'NOTRH',
+      };
+      expect(carPark.moveBusToPos(posLegal1)).toEqual(true);
+      const consoleSpy = spyOn(console, 'log');
+      carPark.reportPosition();
+      expect(consoleSpy).toHaveBeenCalled();
     });
   });
 };

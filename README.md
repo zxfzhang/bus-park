@@ -1,6 +1,6 @@
 # Welcome to Bus in Carpark Simulator
 
-This is a demo project for simulating bus movement within a carpark by a robot.
+This is a demo project for simulating bus movement within a carpark by a robot. See [the design doc](documents/design.md). 
 
 ## Get started
 

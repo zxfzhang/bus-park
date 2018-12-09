@@ -4,7 +4,7 @@
 
 ![](image/components-design.png)
 
-The system contains mainly 5 components, which are Command Reader, Command Store, Robot, Command Translator, and Carpark. These components work together loosely to complete the task to move bus correctly in the carpark.
+The system contains mainly 5 components(words in pink color on the above chart), which are Command Reader, Command Store, Robot, Command Translator, and Carpark. These components work together loosely to complete the task to move bus correctly in the carpark.
 
 ## Command Reader
 
